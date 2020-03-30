@@ -1,9 +1,7 @@
 <?php
 	session_start();
-	//print_r($_SESSION['user']);
 
-	require_once('../service/functions.php');
-	//require('db.php');
+	require('../service/functions.php');
 	$result = getAllUsers();
 ?>
 
@@ -15,7 +13,7 @@
 <body>
 
 		<a href="home.php"> Back</a> | 
-		<a href="logout.php"> logout</a> 
+		<a href="../php/logout.php"> logout</a> 
 		<br>
 		
 		<table border=1>

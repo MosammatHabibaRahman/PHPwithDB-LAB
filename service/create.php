@@ -1,4 +1,7 @@
 <?php
+    session_start();
+    echo $_SESSION['user']['type'];
+
 	if(isset($_POST['submit']))
 	{
 		require('../service/functions.php');
@@ -10,7 +13,9 @@
 
 		$result = register($username,$password,$email,$type);
 		echo $result;
-	}
+    }
+    else
+    {}
 ?>
 
 <html>
