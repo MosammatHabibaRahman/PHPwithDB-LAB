@@ -63,4 +63,20 @@
 		return $result;
 	}
 
+	function deleteUser($id)
+	{
+		$con = getConnection();
+		$sql = "delete from users where id = {$id}";
+
+		if(mysqli_query($con, $sql))
+		{
+			$result = "User successfully removed!";
+		}
+		else
+		{
+			$result = "Error";
+		}
+
+		return $result;
+	}
 ?>
