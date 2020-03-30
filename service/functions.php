@@ -1,5 +1,4 @@
 <?php
-	
 	require('db.php');
 	
 	function validate($username, $password)
@@ -11,7 +10,6 @@
 
 		return $user;
 	}
-
 
 	function getAllUsers()
 	{
@@ -29,6 +27,33 @@
 		if(mysqli_query($con, $sql))
 		{
 			$result = "Registration done!";
+		}
+		else
+		{
+			$result = "Error";
+		}
+
+		return $result;
+	}
+
+	function getSelectedUser($id)
+	{
+		$con = getConnection();
+		$sql = "select * from users where id = {$id}";
+		$result = mysqli_query($con, $sql);
+		$user = mysqli_fetch_assoc($result);
+
+		return $user;
+	}
+
+	function update($id,$username,$password,$email,$type)
+	{
+		$con = getConnection();
+		$sql = "update users set username = '{$username}', password = '{$password}', email = '{$email}', type = '{$type}' where id = $id";
+		
+		if(mysqli_query($con, $sql))
+		{
+			$result = "User info successfully updated!";
 		}
 		else
 		{
