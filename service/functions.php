@@ -24,7 +24,7 @@
 	function register($username,$password,$email,$type)
 	{
 		$con = getConnection();
-		$sql = "insert into users values('','{$username}','{$password}','{$email}', '{$type}')";
+		$sql = "insert into users values(null,'{$username}','{$password}','{$email}', '{$type}')";
 		
 		if(mysqli_query($con, $sql))
 		{
