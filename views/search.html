@@ -1,0 +1,28 @@
+<html>
+    <body>
+        <form>
+            <input type="text" id="searchtxt" name="searchtxt" value="" onkeyup="searchthis()"/>
+            <input type="button" id="searchbtn" name="searchbtn" value="Search"/>
+            <br><br>
+            <div id="div1"></div>
+        </form>
+        
+        <script type="text/javascript">
+            function searchthis()
+            {
+                var searchtxt = document.getElementById("searchtxt").value;
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if(this.readyState = 4 && this.status == 200)
+                    {
+                        document.getElementById('div1').innerHTML = this.responseText;
+                    }
+                };
+
+                xhttp.open("POST","../php/search.php",true);
+                xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                xhttp.send("searchtxt="+searchtxt);
+            }
+        </script>
+    </body>
+</html>
